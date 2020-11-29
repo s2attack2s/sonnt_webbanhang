@@ -1,0 +1,92 @@
+
+<%- include("../layout/head") %>
+
+
+<style>
+  .form-group{
+    width: 50%;
+  }
+</style>
+
+  <body>
+    <div class="aside" style="border: none;">
+      <%- include("../layout/aside_admin") %>
+    </div>
+    <div class="content">
+      <%- include("../layout/nav_admin") %>
+      <!-- <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Thông tin tài khoản</h1>
+    </div> -->
+
+
+    <form class="form-signin" action="/insert" method="POST" enctype="multipart/form-data">
+      <h2>Thêm Sản Phẩm</h2>
+
+      <br>
+      <% if (message.length > 0) { %>
+        <div class="form-control"><%= message %></div>
+    <% } %>
+    <br>
+      <div class="form-group">
+        <input type="text" name="name" class="form-control" placeholder="Tên sản phẩm" required>
+      </div>
+      <div class="form-group">
+        <input type="number" name="quantity" class="form-control" placeholder="Số lượng" required>
+        
+      </div>
+      <div class="form-group">
+        <input type="text" name="note" class="form-control" placeholder="Mô tả" required>
+        
+      </div>
+      
+      <div class="form-group">
+        <input type="number" name="price" class="form-control" placeholder="Giá bán" required>
+       
+      </div>
+    
+        <div class="form-group">
+            <div class="controls">
+              <select class="form-control" id="cateID" name="cateID">
+              
+              <% item.forEach(function(cate){ %>
+         
+                   <option name="cateID" value="<%= cate._id%>"><%= cate.namecate%></option>
+                   
+             
+        
+          <%    }) %>
+        </select>
+            </div>
+        </div>  
+
+      <div class="form-group">
+        <input type="file" name="image"   required >
+      </div>
+      <br>
+      <button class="btn btn-lg btn-warning btn-block text-uppercase" type="submit" style="width:15%;margin-left: 15%;">Thêm</button>
+    </form>
+ 
+      
+      </div>
+      
+
+  
+
+
+        
+</body>
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+

@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="css/body.css">
+<div class="container">
+
+    <div class="row" >
+      
+        <% danhsach.forEach(function(product){ %>
+        <div class="col-sm-3" >
+                  <div class="thumbnail" >
+                    <img
+                      class=""
+                      src="/upload/<%- product.image %>"
+                      alt="Sản phẩm 8"
+                      width="250px"
+                      style="margin-right: 6%;"
+                    />
+                    <div class="caption">
+                      <h4 class="">
+                        <%- product.name %>
+                      </h4>
+                      <p
+                        class=""
+                        style="
+                          white-space: nowrap;
+                          overflow: hidden;
+                          text-overflow: ellipsis;
+                        "
+                      >
+                        <%- product.note %>
+                      </p>
+                     
+                        <div class="">
+                          <p class="lead"><%- product.price %> VNĐ</p>
+                        </div>
+                        <div style="margin-bottom: 5%;">
+                          <a
+                            class="btn btn-success"
+                            href="/user/detail-product/<%- product._id %>"
+                            >Chi tiết</a
+                          >
+                        </div>
+                
+                    </div>
+                  </div>
+            
+             
+              </div> 
+              <% }); %>
+        </div>
+        
+
+</div>

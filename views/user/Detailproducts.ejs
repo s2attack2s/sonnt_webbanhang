@@ -1,0 +1,97 @@
+<%- include("../layout/head") %>
+
+<link rel="stylesheet" href="css/body.css">
+<%- include("../layout/nav") %>
+<body>
+
+ 
+  
+
+   
+  <div class="container" style="margin-top: 2%;">
+    <h3>Chi tiết sản phẩm</h3>
+    <div class="row">
+   <div class="col-sm-6"">
+    <img src="/upload/<%- danhsach.image %>" style="width: 100%; padding-top:2% ;"></div>
+   <div class="col-sm-6" >
+   
+    <input class="detail" type="hidden" value="<%- danhsach.id %>" name="idsp" >
+    <p style="font-size: 25px;"> <strong><%- danhsach.name %></strong></p> 
+    <p style="height: 50%;" > <strong>Chi tiết :</strong> <%- danhsach.note %></p>
+    <p > <strong>Giá :</strong> <mark><%- danhsach.price %></mark></p>
+     <a href="/add-to-cart/<%- danhsach._id %>" class="btn btn-outline-success"><i class="fa fa-cart-plus">Add to Cart</i></a>     
+   </div>
+    </div>
+    <br>
+    <h2> Bình luận</h2>
+
+<br>
+
+ <form action="/comment" method="POST">
+ <label style="float: left;"> <%- user.name %></label>
+
+ <input type="hidden" class="form-control" rows="5" value="<%- danhsach._id %>" name="idsp" ></textarea>
+ <textarea class="form-control" rows="5" name="note" id="comment"></textarea>
+ 
+ <br>
+ <button class="btn-primary" type="submit">Gửi</button>
+ </form>
+ <hr>
+
+ <% cmt.forEach(function(comment){ %>
+
+ <div>     
+ <strong style="float: left; margin-right: 100px; width: 150px;"><%- comment.uname %></strong>
+ <p style="float: left;right: 100px; width: 70%;"><%- comment.note %></p>
+ 
+ <a href="/delete-comment/<%- comment._id %>"><p style="margin-left: 100px;">Xoá</p></a>
+ <br>
+</div>
+<% }); %>
+  
+  </div>
+    <!-- <div class="container">
+
+        <div class="card"> 
+         <div class="con tainer-fliud"> 
+          <div class="wrapper row"> 
+           <div class="preview col-md-6"> 
+            <div class="preview-pic tab-content"> 
+             <div class="tab-pane active" id="pic-1">
+              
+               
+              <img src="/upload/<%- danhsach.image %>">
+              <input type="hidden" name="img" type="text" value="<%- danhsach.image %>" alt="">
+             </div>  
+            </div>          
+           </div> 
+           <div class="details col-md-6"> 
+            
+            <h3 class="product-title">
+              <input class="detail" type="hidden" value="<%- danhsach.id %>" name="idsp" >
+              <input class="detail" type="text" value="<%- danhsach.name %>" name="name" readonly>
+              </h3> 
+            <div class="rating"> 
+         
+            </div> 
+            <p class="product-gianhap"><%- danhsach.note %></p> 
+            <h4 class="price" style="position: relative; top: 100px;">Giá bán: <%- danhsach.price %> VNĐ</h4> 
+            <div class="action" style="position: relative; top: 100px;" > 
+              <a href="/add-to-cart/<%- danhsach._id %>" class="btn btn-outline-success"><i class="fa fa-cart-plus"></i>Add to Cart</a>
+             
+             <!-- <button class="btn btn-success" type="submit">Nhắn tin cho người bán</button> -->
+             <!--  </div> 
+        
+           </div> 
+          </div> 
+         </div> 
+      
+        </div>
+      </div>
+         -->
+   
+       
+ <%- include("../layout/footer") %>  
+
+</body> 
+ 

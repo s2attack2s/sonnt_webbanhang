@@ -1,0 +1,37 @@
+<%- include("../layout/head") %>
+
+
+<link rel="stylesheet" href="css/body.css">
+
+  <%- include("../layout/nav") %>
+  <body >
+<!------------------->
+<div class="container">
+
+  <h3>Đặt hàng</h3>
+  <hr>
+  <div class="col-sm-8">
+    <form action="/menu" method="POST">
+      <label >Họ tên: <p style="color: red;float: right;"> *</p></label>
+      <input style="margin-left: 95px; width: 280px;" type="text" id="name" name="name"  class="dathang"/> <br><br>
+      <label>Địa chỉ: <p style="color: red;float: right;"> *</p></label>
+      <input type="text" style="margin-left: 93px; width: 280px;" id="address" name="address" class="dathang"/><br><br>
+      <label>Số điện thoại:  <p style="color: red;float: right;"> *</p> </label>
+      <input type="number" style="margin-left: 55px; width: 280px;" id="sdt" name="sdt" class="dathang" /><br><br>
+      <label>Ghi chú: <p style="color: red;float: right;"> *</p></label>
+      <textarea class="dathang" style="margin-left: 90px;" rows="5" cols="32" name="msg" id="msg"></textarea><br><br>
+     
+    
+     
+      <button style="margin-left: 160px;" class="btn btn-primary" type="submit">Gửi</button>
+    <button class="btn btn-warning" type="reset" >Reset</button>
+    </form>
+  </div>
+
+
+</div>
+</div>
+
+<%- include("../layout/footer") %>
+</body>
+

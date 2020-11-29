@@ -1,0 +1,69 @@
+<%- include("../layout/head") %>
+
+<style>
+  .tr {
+    text-align: center;
+  }
+</style>
+<body>
+  <div class="aside" style="border: none">
+    <%- include("../layout/aside_admin") %>
+  </div>
+  <div class="content">
+    <%- include("../layout/nav_admin") %>
+
+    <div class="container">
+      <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Hộp thư đến</h1>
+        <br />
+        <br />
+
+        <table >
+          <tr >
+            <th style="text-align: left;">
+              Người gửi
+              <br />
+              <br />
+            </th>
+            <th style="text-align: left;">
+              Tiêu đề
+              <br />
+              <br />
+            </th>
+            <th style="text-align: left;">
+              Ngày gửi
+              <br />
+              <br />
+            </th>
+            <th style="text-align: left;">
+              Xoá
+              <br />
+              <br />
+            </th>
+          </tr>
+    
+        <% list.forEach(function(contact){ %>
+    
+            <tr id="p1" onmouseup="mouseUp()" style="color: red">
+            <td >
+              <p><%= contact.name %></p>
+            </td>
+            <td>
+              <a href="/detail-notification/<%= contact.id %>">
+                <%= contact.title %>
+              </a>
+            </td>
+            <td><%= contact.ngaygui.getDate() %>/ <%= contact.ngaygui.getMonth()%> / <%= contact.ngaygui.getFullYear() %> </td>
+                    <td >
+              <a href="/delete-contact/<%- contact.id %>"> Xoá </a>
+            </td>
+        </tr>
+        
+        <% }); %>
+ 
+</table>
+        <!-- LOCAL INFORMATION -->
+      </div>
+    </div>
+  </div>
+</body>

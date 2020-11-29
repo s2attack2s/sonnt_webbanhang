@@ -1,0 +1,41 @@
+<style>
+   
+  table {
+    font-family: "Times New Roman", Times, serif;
+    width: 100%;
+    height: auto;
+  }
+  th {
+    font-size: 25px;
+    text-align: center;
+  }
+  .cate {
+    font-size: 20px;
+    padding-left: 10%;
+  }
+</style>
+<link rel="stylesheet" href="css/body.css">
+<table>
+
+  <tr>
+    <th>
+      Danh mục sản phẩm
+      <hr />
+    </th>
+  </tr>
+  <% item.forEach(function(cate){ %>
+  <tr>
+   
+    <td>
+      <div class="cate">
+      
+        <a href="/cate/<%= cate._id %>"><%= cate.namecate %> <br> </a>
+      
+      </div>
+      <hr />
+    </td>
+
+   
+  </tr>
+  <% }); %>
+</table>

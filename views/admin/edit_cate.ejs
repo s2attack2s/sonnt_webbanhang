@@ -1,0 +1,50 @@
+
+<%- include("../layout/head") %>
+
+<link rel="stylesheet" href="/css/body.css">
+<style>
+  .form-group{
+    width: 50%;
+  }
+</style>
+
+  <body>
+    <div class="aside" style="border: none;">
+      <%- include("../layout/aside_admin") %>
+    </div>
+    <div class="content">
+      <%- include("../layout/nav_admin") %>
+      <!-- <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Thông tin tài khoản</h1>
+    </div> -->
+
+    <br>
+    <form class="form-signin" action="/updatecate" method="POST">
+      <h2>Cập nhật</h2>
+
+      <br>
+    
+      <div class="form-group">
+        <input type="text" name="namecate" placeholder="<%- item.namecate%>" />
+      </div>
+     
+      <button class="btn  btn-warning" type="submit" style="width:15%;">Cập nhật</button>
+    </form>
+ 
+      
+      </div>    
+</body>
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+

@@ -1,0 +1,22 @@
+body{
+    width: 100%;
+    height: 100%;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .container{
+    margin-top: 2%;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .aside{
+      border-right: 2px solid red;
+      float: left;
+    width: 20%;
+    min-height: 300px;
+ 
+  }
+  .content{
+   
+    float: right;;
+    width: 79%;
+    min-height: 300px;
+  }

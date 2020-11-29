@@ -1,0 +1,70 @@
+<%- include("./layout/head") %>
+<link rel="stylesheet" href="css/body.css">
+<%- include("./layout/nav") %>
+
+
+<!-- Use any element to open the sidenav -->
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+
+    <div class="page-header text-center">
+      <h1 style="font-size: 30px; font-family: 'Times New Roman', Times, serif;">
+        <br>
+        <span class="fa fa-anchor"></span>
+         Thông tin cá nhân
+      </h1>
+    </div>
+<div class="container" style="font-family: 'Times New Roman', Times, serif;">
+    <div class="row">
+      <!-- LOCAL INFORMATION -->
+      <div class="col-sm-6">
+        <div class="well">
+          <h3><span class="fa fa-user"></span> <%= user.name %></h3>
+
+          <p style="color: red">
+            Email: <%= user.email %>
+            <br />
+          </p>
+         
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content" >
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  Bạn có chắc chắn muốn xóa tài khoản?
+                </div>
+                <div class="modal-footer">
+                  <a href="/client">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                      Hủy
+                    </button>
+                  </a>
+                  <a href="/delete-user/<%= user._id %>">
+                    <button type="button" class="btn btn-primary">
+                      Xóa
+                    </button></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-------update------->
+
+          <a style="margin-top: 20px" href="/logout">
+            <button type="button" class="btn btn-default">Đăng xuất</button>
+          </a>
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal">
+            Xóa tài khoản
+          </button>
+        </div>
+        <!-- Modal -->
+      </div>
+    </div>
+  </div>
+ 

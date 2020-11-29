@@ -1,0 +1,67 @@
+<%- include("../layout/head") %>
+
+
+<link rel="stylesheet" href="css/body.css">
+<%- include("../layout/nav") %>
+<br>
+<body>
+  
+  <div class="aside">
+    <%- include("./list_cate") %>
+  </div>
+  <div class="content">
+    <div class="container">
+      <h3 style="color: red;">Kết quả tìm kiếm :</h3>
+      <div class="row">
+          <% danhsach.forEach(function(product){ %>
+          <div class="col-sm-4">
+                    <div class="thumbnail" >
+                      <img
+                        class=""
+                        src="/upload/<%- product.image %>"
+                        alt="Sản phẩm 8"
+                        width="300px"
+                      />
+                      <div class="caption">
+                        <h4 class="">
+                          <%- product.name %>
+                        </h4>
+                        <p
+                          class=""
+                          style="
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                          "
+                        >
+                          <%- product.note %>
+                        </p>
+                       
+                          <div class="">
+                            <p class="lead"><%- product.price %> VNĐ</p>
+                          </div>
+                          <div class="">
+                            <a
+                              class="btn btn-success"
+                              href="/user/detail-product/<%- product._id %>"
+                              >Chi tiết</a
+                            >
+                          </div>
+                  
+                      </div>
+                    </div>
+              
+               
+                </div> 
+                <% }); %>
+          </div>
+          
+          
+      </div>
+  </div>
+  </div>
+  
+</body>
+<br>
+
+

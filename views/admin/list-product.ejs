@@ -1,0 +1,155 @@
+
+<%- include("../layout/head") %>
+
+
+
+<link rel="stylesheet" href="/css/body.css">
+  <body>
+    <div class="aside" style="border: none;">
+      <%- include("../layout/aside_admin") %>
+    </div>
+    <div class="content">
+      <%- include("../layout/nav_admin") %>
+      <!-- <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Thông tin tài khoản</h1>
+    </div> -->
+
+   
+  <div class="profile">
+    <% if (message.length > 0) { %>
+      <div class="alert alert-danger"><%= message %></div>
+  <% } %>
+    <div class="container">
+
+      <div class="row" style="margin-left: -5%" >
+        
+          <% danhsach.forEach(function(product){ %>
+          <div class="col-sm-3">
+                    <div class="thumbnail" >
+                      <img
+                        class=""
+                        src="/upload/<%- product.image %>"
+                        alt="Sản phẩm 8"
+                        width="300px"
+                        style="padding-right: 6%;"
+                      />
+                      <div class="caption">
+                        <h4 class="">
+                          <%- product.name %>
+                        </h4>
+                        <p
+                          class=""
+                          style="
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                          "
+                        >
+                          <%- product.note %>
+                        </p>
+                       
+                          <div class="">
+                            <p class="lead"><%- product.price %> VNĐ</p>
+                          </div>
+                          <div style="margin-bottom: 5%;"> 
+                            <a class="btn btn-success" href="/admin/edit-product/<%- product._id %>">
+                           Cập nhật</a> 
+                    
+                           <a class="btn btn-success" href="/delete-product/<%- product._id %>">
+                          Xoá</a> 
+                       </div>
+                  
+                      </div>
+                    </div>
+              
+               
+                </div> 
+                <% }); %>
+          </div>
+          
+          
+      </div>
+  </div>
+    
+
+<!-- pagination -->
+<div class="row">
+  <!-- hiển thị phân trang nếu có trang -->
+  <% if(pages > 0) { %>
+  <nav class="mx-auto">
+    <ul class="pagination" style="margin-top: 2rem;">
+    
+      <!-- FIRST ITEM -->  
+      <% if(current == 1) { %> 
+   
+          <li class="page-item disabled">
+            <a class="page-link">First</a>
+          </li>
+      <% } else { %>
+     
+          <li class="page-item">
+            <a class="page-link" href="/admin/list-product">First</a>
+          </li>
+      <% } %>
+    
+      <!-- ITEMS  -->
+      <% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %> 
+     <% if(i !== 1) { %>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">...</a>
+          </li>
+      <% } %>
+      <% for(; i <= (Number(current) + 2) && i <= pages; i++) { %>
+         <% if(i == current) { %>
+          <li class="page-item active">
+            <a class="page-link" href="/admin/list-product/<%= i %>/">
+              <%= i %>
+            </a>
+          </li>
+      <% } else { %>
+          <li class="page-item">
+            <a class="page-link" href="/admin/list-product/<%= i %>/">
+              <%= i %>
+            </a>
+          </li>
+      <% } %>
+      <% if (i == Number(current) + 2 && i < pages) { %>
+          <li class="page-item disabled">
+            <a class="page-link" href="#">...</a>
+          </li>
+      <% } %>
+      <% } %>
+      
+      <!-- LAST ITEM -->
+      <% if(current == pages) { %> 
+         <li class="page-item disabled">
+          <a class="page-link" >
+              Last
+          </a>
+          </li>
+      <% } else { %>
+      
+          <li class="page-item">
+            <a class="page-link" href="/admin/list-product/<%= pages %>/">
+              Last
+            </a>
+          </li>
+      <% } %>
+    </ul>
+  </nav>
+  <% } %>
+</div>
+
+
+  </div>
+ 
+      
+  
+      
+       
+  
+
+
+        
+</body>
+ 

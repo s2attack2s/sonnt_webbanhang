@@ -1,0 +1,73 @@
+<%- include("../layout/head") %>
+
+
+
+
+  <body>
+    <div class="aside" style="border: none;">
+      <%- include("../layout/aside_admin") %>
+    </div>
+    <div class="content">
+      <%- include("../layout/nav_admin") %>
+  
+  <div class="profile">
+    <div class="container">
+      <!--  breadcrumb -->      
+       <h1 class="heading1"><span class="maintext"> </span><span class="subtext"> Chi tiết mua hàng</span></h1>
+       <hr>
+       <!-- Cart-->
+       <div class="cart-info">
+         <table class="table table-striped table-bordered">
+           <tr>
+            
+                 <th>ID</th>
+                 <th>Name</th>
+                 <th>Hình</th>
+                 <th>Số Lượng</th>
+                 <th>Tiền</th>
+            
+           </tr>
+           <tbody>
+             <% var id = 0; var total = 0 %>
+             <% cart.cart.forEach(function(item){ id ++; total += item.price;%>
+             <tr>
+                 <td><%= id%></td>
+                 <td><%= item.item.name%></td>
+                 <td> <img src="/upload/<%= item.item.image%>" width="150px" alt=""></td>
+                 <td><%= item.qty%></td>
+                 
+                 <td><%= item.price%>đ</td>
+             </tr>
+             <%})%>
+             <tr>
+                 <td colspan="5">
+                     <% if(cart.st == 0){ %>
+                         <a href="/xacnhan/<%= cart._id%>">Đang chờ xử lý</a>
+                     <%}else{ %>
+                         <span>Đã xác nhận</span>
+                     <%}%> | 
+                     <a href="/xoa/<%= cart._id %>">Xoá</a>
+                 </td>
+             </tr>
+             <tr>
+                 <td colspan="5">
+                     <p><strong style="color:red">Tồng Tiền: </strong> <%= total %>đ</p>
+                 </td>
+             </tr>
+         </tbody>
+ 
+         </table>
+       </div>
+   
+      </div>
+      
+      </div>
+      
+       
+  
+
+
+        
+</body>
+ 
+

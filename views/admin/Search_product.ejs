@@ -1,0 +1,103 @@
+<%- include("../layout/head") %>
+<style>
+  .lead {
+    color: red;
+  }
+  .thumbnail {
+    height: 320px;
+  }
+  .thumbnail > img {
+    display: block;
+    height: 165px;
+    max-width: 100%;
+  }
+
+</style>
+
+
+<%- include("../layout/aside_admin") %>
+
+<!-- Use any element to open the sidenav -->
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+  <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+    >&#9776;</span
+  >
+
+  <div class="container">
+
+    <div class="well well-sm text-right">
+      
+    <form action="/Search" method="POST">
+      <button type="button" onclick="getBack()" style="border: transparent; background-color: transparent; float: left;" > <span class="glyphicon glyphicon-menu-left"></span> Quay lại</button>
+      <script type="text/javascript">
+        function getBack() {
+          history.back();
+        }		
+      </script>
+      <input
+        name="name"
+        id="timkiem"
+        type="text"
+        placeholder="Tìm kiếm"
+        style="border-radius: 15px; padding: 10px; width: 20%"
+      />
+      <button type="submit" class="btn btn-success" >Tìm</button>
+    </form> 
+
+    </div>
+    <!-- <div id="content">
+      </div> -->
+      <div id="products" class="row list-group">
+        <% danhsach.forEach(function(product){ %>
+<div class="item  col-xs-3 col-lg-3"> 
+  <div class="thumbnail"> <img class="group list-group-image" src="/upload/<%- product.image %>" width="300"> 
+   <div class="caption"> 
+    <h4 class="group inner list-group-item-heading"><%- product.name %></h4> 
+    <p class="group inner list-group-item-text" style="white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis; "><%- product.note %></p> 
+    <div class="row"> 
+     <div class="col-xs-12 col-md-"> 
+      <p class="lead"><%- product.price %> VNĐ</p>
+     </div> 
+    </br>
+     <div class="col-xs-12 col-md-6"> 
+         <a class="btn btn-success" href="/admin/edit-product/<%- product._id %>">
+        Cập nhật</a> 
+     </div> 
+     <div class="col-xs-12 col-md-6"> 
+        <a class="btn btn-success" href="/delete-product/<%- product._id %>">
+       Xoá</a> 
+    </div>
+    </div> 
+   </div> 
+  </div>
+ 
+</div>
+ <% }); %>
+    </div>
+    <div style="clear: left; width: 100%; ">
+      <a href="admin/list-product"><button style="margin-left: 48%;">Xem thêm...</button></a>
+      
+    </div>
+   </div>
+
+</div>
+<script>
+
+
+
+</script>
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
+</script>

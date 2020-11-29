@@ -1,0 +1,56 @@
+<%- include("../layout/head") %>
+
+<link rel="stylesheet" href="css/body.css">
+  <%- include("../layout/nav") %>
+
+  
+<body>
+
+<!------------------->
+      <div class="container">
+       <h2 style="color: red;">Lịch sử mua hàng</h2>
+
+        <table id="example" class="display table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th >ID</th>
+                    <th>Họ tên</th>
+                    <th>Địa chỉ</th>
+                    <th>Ngày mua</th>
+                    <th >Trạng thái</th>
+                    <th >Tùy chọn</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% var i = 0 %>
+                <% data.forEach(function(item){ i ++%>
+                <tr>
+                    <td><%= i %></td>
+                    <td ><%= item.name%></td>
+                    <td><%= item.address%></td>
+                    <td><%= item.date.getDate()%>/ <%= item.date.getMonth()%> / <%= item.date.getFullYear()%> </td>
+                 
+                
+                      <td >
+                          <% if(item.st == 0){ %>
+                            <span> Đang chờ xử lý</span>
+                          <%}else{ %>
+                              <span>Đã xác nhận</span>
+                          <%}%>  
+                      </td>
+                 
+                    <td>
+                        <a href="/xemhang/<%= item._id %>">Xem</a>  
+                        <% if(item.st == 0){ %>
+                          |  <a href="/delete-order/<%= item._id %>">Hủy</a>
+                        <%}else{ %>
+                           
+                        <%}%>   
+                       
+                    </td>
+                </tr>
+                <%})%>
+            </tbody>
+          </table>
+          <%- include("../layout/footer") %>
+        </body>

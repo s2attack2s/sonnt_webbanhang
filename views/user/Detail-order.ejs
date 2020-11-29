@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="css/body.css">
+<% cart.cart.forEach(function(item){ %>
+    
+    <p><%- order.status %></p>
+    <p><%- order.name %></p>
+    <p><%- order.cart.totalQty %></p>
+    <p><%- order.cart.totalPrice %></p>
+    <a href="/Detail_order/<%= order._id %>">Xem</a> | 
+
+
+<% }); %>

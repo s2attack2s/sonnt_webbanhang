@@ -1,0 +1,106 @@
+<%- include("../layout/head") %>
+<link rel="stylesheet" href="css/body.css">
+
+  <%- include("../layout/nav") %>
+
+
+<!------------------->
+<body>
+<div class="container">
+  <h3>Giỏ hàng</h3>
+  <div class="row">
+    
+  <table class="table table-striped table-bordered">
+    
+    <tr>
+      <th >Ảnh</th>
+      <th >Tên sản phẩm</th>
+      <th >Giá</th>
+      <th >Số lượng</th>
+      <th >Thành tiền</th>
+    </tr>
+    <% var total = 0; if(data){ data.forEach(function(item){ total += item.price %>
+      <tr>
+        <td ><a href="/chi-tiet/<%= item.item.nameKhongDau%>.<%= item.item._id%>.<%= item.item.cateId%>.html"><img title="product" alt="product" src="/upload/<%= item.item.image%>" height="100" width="200"></a></td>
+        <td  ><a href="/chi-tiet/<%= item.item.nameKhongDau%>.<%= item.item._id%>.<%= item.item.cateId%>.html"><%= item.item.name%></a></td>
+        
+        <td ><%= item.item.price%> đ</td>
+        <td ><input id="<%= item.item._id%>" type="text" size="1" value="<%= item.qty%>" name="quantity[40]" class="span1">
+         
+        </td>
+      
+        <td><%= item.price%> đ</td>
+         
+      </tr>
+      <%})}%>
+
+  </table>
+
+</div>
+<div class="pull-right">
+  <div class="span4 pull-right">
+    <table class="table table-striped table-bordered ">
+      
+        <td><span class="extra bold totalamout">Tổng tiền :</span></td>
+        <td><span class="bold totalamout"><%= total%> đ</span></td>
+      </tr>
+    </table>
+    <a href="/order" class="btn btn-success" style="float: right;">Đặt Hàng</a>
+  </div>
+
+</div>
+</div>
+</div>
+
+      <!-- <div class="container">
+       
+      <div class="row">
+        <table class="table table-striped table-bordered">
+          <tr>
+            <th class="col-sm-2">Image</th>
+            <th class="col-sm-2">Product Name</th>
+            <th class="col-sm-2">Số Lượng</th>
+            <th class="col-sm-2">Action</th>
+            <th class="col-sm-2">Giá</th>
+            <th class="col-sm-2">Tiền</th>
+           
+          </tr>
+          <% var total = 0; if(data){ data.forEach(function(item){ total += item.price %>
+          <tr>
+            <td class="col-sm-2"><a href="/chi-tiet/<%= item.item.nameKhongDau%>.<%= item.item._id%>.<%= item.item.cateId%>.html"><img title="product" alt="product" src="/upload/<%= item.item.image%>" height="100" width="200"></a></td>
+            <td  class="col-sm-2"><a href="/chi-tiet/<%= item.item.nameKhongDau%>.<%= item.item._id%>.<%= item.item.cateId%>.html"><%= item.item.name%></a></td>
+            <td class="col-sm-2"><input id="<%= item.item._id%>" type="text" size="1" value="<%= item.qty%>" name="quantity[40]" class="span1">
+             
+             </td>
+             <td class="total"> <a href="#"><img  class="tooltip-test updateCart" id="<%= item.item._id%>" data-original-title="updateCart" src="/images/update.png" alt=""></a>
+              <a href="#"><img class="tooltip-test delCart" id="<%= item.item._id%>" data-original-title="Remove"  src="/images/remove.png" alt=""></a></td>
+    
+            <td class="col-sm-2"><%= item.item.price%> đ</td>
+            <td class="col-sm-2"><%= item.price%> đ</td>
+             
+          </tr>
+          <%})}%>
+
+        </table>
+      </div>
+     
+      <div class="pull-right">
+          <div class="span4 pull-right">
+            <table class="table table-striped table-bordered ">
+              
+                <td><span class="extra bold totalamout">Tổng tiền :</span></td>
+                <td><span class="bold totalamout"><%= total%> đ</span></td>
+              </tr>
+            </table>
+            <a href="/order" class="btn btn-success" style="float: right;">Đặt Hàng</a>
+          </div>
+       
+        </div>
+    </div>
+
+</div>
+
+
+    </div> -->
+    <%- include("../layout/footer") %>
+  </body>

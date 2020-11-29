@@ -1,0 +1,45 @@
+<%- include("../layout/head") %>
+<body>
+  <style>
+     .td{
+        text-align: center;
+      }
+  </style>
+  <div class="aside" style="border: none">
+    <%- include("../layout/aside_admin") %>
+  </div>
+  <div class="content">
+    <%- include("../layout/nav_admin") %>
+
+    <div class="profile">
+      <div class="container">
+        <h2 style="color: red">Danh sách khách hàng</h2>
+   
+        <table id="example" class="display table table-hover table-condensed">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Họ tên</th>
+              <th>Tùy chọn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% var id = 0 %> <% user.forEach(function(user){ id++ %>
+            <tr class="td">
+              <td><%= id %></td>
+              <td><%= user.name %></td>
+              <td colspan="5">
+                <% if(user.lock == 0){ %>
+                <a href="/lock/<%= user._id%>">Khóa người dùng</a>
+                <%}else{ %>
+                <a href="/unlock/<%= user._id%>">Mở khóa người dùng</a>
+                <%}%>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,19 @@
+#insert{
+    background-image: url("/images/bg-01.jpg");
+    width: 100%;
+    height:100%;
+    background-size: cover;
+}
+.Home{
+    width: 30%;
+    height: 15%;
+    margin: auto;
+}
+.Home h2{
+    text-align: center;
+    color: yellow;
+}
+.form-control{
+    margin-top: 5%;
+    width: 100%;
+}

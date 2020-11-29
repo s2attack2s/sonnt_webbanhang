@@ -1,0 +1,56 @@
+ 
+   .sidenav .closebtn{
+    right: -200px;
+}
+ /* Style the sidenav links and the dropdown button */
+ .sidenav a, .dropdown-btn {
+   padding: 9px 40px 6px 16px;
+   text-decoration: none;
+   
+   color: black;
+   display: block;
+   border: none;
+   background: none;
+   width: 100%;
+   text-align: left;
+   cursor: pointer;
+   outline: none;
+
+font-size: 20px;
+
+display: block;
+transition: 0.3s;
+ }
+ 
+ /* On mouse-over */
+ .sidenav a:hover, .dropdown-btn:hover {
+   color: red;
+ }
+ 
+ /* Main content */
+ .main {
+   margin-left: 200px; /* Same as the width of the sidenav */
+   font-size: 20px; /* Increased text to enable scrolling */
+   padding: 0px 10px;
+ }
+ 
+ /* Add an active class to the active dropdown button */
+ 
+ /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+ .dropdown-container {
+   display: none;
+
+   padding-left: 8px;
+ }
+ 
+ /* Optional: Style the caret down icon */
+ .fa-caret-down {
+   float: right;
+   padding-right: 8px;
+ }
+ 
+ /* Some media queries for responsiveness */
+ @media screen and (max-height: 450px) {
+   .sidenav {padding-top: 15px;}
+   .sidenav a {font-size: 18px;}
+ }

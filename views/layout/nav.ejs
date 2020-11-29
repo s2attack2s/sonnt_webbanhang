@@ -1,0 +1,161 @@
+<link rel="stylesheet" href="css/nav.css"> 
+
+<!------ Include the above in your HEAD tag ---------->
+
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/"><img src="/icon/Logo.gif" style="border-radius: 15px;width: 80px; height: 70px;"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home">
+          <i class="fa fa-home"></i>
+          Home
+          <span class="sr-only">(current)</span>
+          </a>
+      </li>
+      <li class="nav-item">
+     
+  
+        <a class="nav-link" href="/product">
+        
+          <i class="fa fa-shopping-basket">
+          </i>
+          Sản phẩm
+        </a> 
+    </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">
+          <i class="fa fa-globe">
+           
+          </i>
+          Giới thiệu
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">
+          <i class="fa fa-envelope-open-o">
+           
+          </i>
+         Liên hệ
+        </a>
+      </li>
+   
+   
+    </ul>
+   
+    <ul class="navbar-nav ">
+      <% if(user === null){ %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user-o">
+          
+            </i>
+           
+            Tải khoản
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/login">Đăng nhập</a>
+            <a class="dropdown-item" href="/register">Đăng ký</a>
+         
+            
+          </div>
+        </li>
+        <% }else{ %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user-o">
+            
+              </i>
+            <%= user.name %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              
+              <a class="dropdown-item" href="/client">
+                <i class="fa fa-id-card-o" aria-hidden="true"></i>
+                Trang cá nhân </a>
+              <a class="dropdown-item" href="/logout">
+                <i class="fa fa-sign-out">
+            
+                </i>
+                Đăng xuất</a>
+           
+              
+            </div>
+          </li>
+          <% } %>
+
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-cart-plus">
+      
+      </i>
+      Giỏ hàng
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="/shopping-cart">
+        <i class="fa fa-cart-plus">
+        </i>
+        Giỏ hàng</a>
+      <a class="dropdown-item" href="/checkout">
+        <i class="fa fa-history">
+        </i>
+        Lịch sử mua hàng</a>
+  
+    </div>
+  </li>
+
+
+
+     
+    </ul>
+   
+    <form class="form-inline my-2 my-lg-0" action="/Search" method="POST">
+      <input class="form-control mr-sm-2" name="name" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+<!-- 
+ 
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/home"><i class="fa fa-fw fa-home"></i> Trang chủ</a>
+  <a href="/client" ><i class="fa fa-fw fa-user"></i> Tài khoản</a>
+  <a href="/about" ><i class="material-icons" style="font-size:30px;float: left;">public</i> Giới thiệu</a>
+  <a href="/product"><i class="material-icons" style="font-size:30px;float: left;">star</i>Sản phẩm</a>
+  <a class="dropdown-btn"> <i class="material-icons" style="font-size:30px; float: left;">shopping_cart</i>   Giỏ hàng
+    <i class="fa fa-caret-down"></i>
+  </a>
+  <div class="dropdown-container">
+    <a href="/shopping-cart">Giỏ hàng</a>
+    <a href="/checkout">Lịch sử mua hàng </a>
+    
+  </div>
+  <a href="/contact"><i class="fa fa-fw fa-envelope"></i> Liên hệ</a>
+</div>
+<script>
+  /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+  var dropdown = document.getElementsByClassName("dropdown-btn");
+  var i;
+  
+  for (i = 0; i < dropdown.length; i++) {
+    dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+    dropdownContent.style.display = "none";
+    } else {
+    dropdownContent.style.display = "block";
+    }
+    });
+  }
+  </script> -->
+
+<!------ Include the above in your HEAD tag ---------->
