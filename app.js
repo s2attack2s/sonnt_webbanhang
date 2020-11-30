@@ -117,7 +117,5 @@ app.use("/", cate);
 app.use("/", detail_product);
 // catch 404 and forward to error handler
 
-app.listen(4000,(req,res)=>{
-  console.log("Truy cập localhost:4000")
-})
+app.listen(process.env.PORT || 4000)
 
