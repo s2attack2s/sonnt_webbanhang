@@ -32,7 +32,7 @@
                    <td><%= i %></td>
                    <td ><%= item.name%></td>
                    <td><%= item.address%></td>
-                   <td><%= item.date.getDate()%>/ <%= item.date.getMonth()%> / <%= item.date.getFullYear()%> </td>
+                   <td><%= item.date.getDate()%>/ <%= item.date.getMonth() +1 %> / <%= item.date.getFullYear()%> </td>
                    <td >
                        <% if(item.st == 0){ %>
                          <span> Đang chờ xử lý</span>
