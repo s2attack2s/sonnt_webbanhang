@@ -44,7 +44,7 @@ userModel.find({role : "user"}).then(function(data){
   })
 }
 })
- 
+
 /* GET sign-in page. */
 router.get('/login', function(req, res, next) {
   user = null;
