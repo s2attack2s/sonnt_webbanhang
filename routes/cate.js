@@ -83,9 +83,7 @@ cate.get("/cate/:id",(req,res)=>{
 
     cates.find().then(function(data){
         item = data
-     products.find({cateID: req.params.id} ).then(function (data) {
-         console.log(data)
-        
+     products.find({cateID: req.params.id} ).then(function (data) { 
         res.render("user/view_cate", { ca: data });
       });
     })
